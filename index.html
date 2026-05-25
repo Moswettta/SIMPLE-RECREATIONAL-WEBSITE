@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Papaal | Lifestyle & Hospitality Redefined – Hotel, Autospa, Grill & Barbershop</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefaf5;
+      color: #1e2a2e;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    :root {
+      --gold: #c9a03d;
+      --gold-dark: #a07c2c;
+      --dark-bg: #23282c;
+      --warm-light: #fefaf5;
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 4px;
+    }
+    .section-sub {
+      font-size: 1.1rem;
+      color: #5f6e6b;
+      margin-bottom: 48px;
+      max-width: 680px;
+    }
+
+    /* Buttons */
+    .btn-gold {
+      background: var(--gold);
+      color: #1e2a2e;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .btn-gold:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      color: white;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #1e2a2e;
+    }
+
+    /* Navbar with hamburger */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(254, 250, 245, 0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      padding: 18px 0;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #c9a03d, #8b6b2a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo p {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      color: #6b7b78;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3f41;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.7rem;
+      cursor: pointer;
+      color: #2c3f41;
+    }
+    /* Hamburger active menu */
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 0 16px;
+        gap: 20px;
+        background: rgba(254, 250, 245, 0.98);
+        border-radius: 28px;
+        margin-top: 16px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .nav-container {
+        position: relative;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(115deg, #fcf7ef 0%, #f2ebe0 100%);
+      padding: 60px 0 80px;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      background: rgba(201, 160, 61, 0.12);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.6rem;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #4f6769;
+      margin-bottom: 32px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 20px;
+    }
+    .stat span {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--gold);
+    }
+    .hero-image {
+      flex: 1;
+      min-height: 380px;
+      border-radius: 32px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: var(--shadow-md);
+      background-image: url('https://placehold.co/600x500/cbbf9e/5e4b2f?text=Papaal+Hotel+Exterior');
+    }
+
+    /* GALLERY SECTION (new) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .gallery-item {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+      transition: var(--transition);
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+    }
+    /* gallery placeholder images (replaceable) */
+    .gal-1 { background-image: url('https://placehold.co/600x450/d9cba8/7c673e?text=Hotel+Suite'); }
+    .gal-2 { background-image: url('https://placehold.co/600x450/cbbd96/5c4a28?text=Grill+Area'); }
+    .gal-3 { background-image: url('https://placehold.co/600x450/b8a571/4a3820?text=Autospa+Bay'); }
+    .gal-4 { background-image: url('https://placehold.co/600x450/dbcdaa/6b542f?text=Barbershop+Lounge'); }
+    .gal-5 { background-image: url('https://placehold.co/600x450/cebf92/5f4c2a?text=Outdoor+Dining'); }
+    .gal-6 { background-image: url('https://placehold.co/600x450/cab27e/55401f?text=Hotel+Reception'); }
+
+    /* Service Cards with BG images (enhanced) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+    .service-card {
+      position: relative;
+      border-radius: 28px;
+      padding: 32px 24px;
+      transition: var(--transition);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      color: white;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.5) 100%);
+      z-index: 0;
+      border-radius: 28px;
+      transition: var(--transition);
+    }
+    .service-card:hover::before {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.55) 100%);
+    }
+    .service-card > * {
+      position: relative;
+      z-index: 2;
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .service-card ul {
+      padding-left: 0;
+      margin: 16px 0;
+      list-style: none;
+    }
+    .service-card li {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-card li i {
+      color: var(--gold);
+      width: 20px;
+    }
+    .card-hotel { background-image: url('https://placehold.co/800x600/c5b28b/4a3a22?text=Hotel+Room+Accommodation'); }
+    .card-grill { background-image: url('https://placehold.co/800x600/c4a56e/3e2e1a?text=Grill+%26+Restaurant'); }
+    .card-autospa { background-image: url('https://placehold.co/800x600/9b8462/2f2418?text=Professional+Autospa'); }
+    .card-barber { background-image: url('https://placehold.co/800x600/b29262/3f2c16?text=Barbershop+Grooming'); }
+
+    /* about, values */
+    .two-col {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .values-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .value-tag {
+      background: #f5ede1;
+      padding: 8px 22px;
+      border-radius: 60px;
+      font-weight: 500;
+    }
+    .mission-block {
+      background: #fff9ef;
+      padding: 32px;
+      border-radius: 32px;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .why-item {
+      background: white;
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .why-item i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .contact-info {
+      background: #23282c;
+      color: #fefaf5;
+      border-radius: 48px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .contact-info i {
+      color: var(--gold);
+      margin-right: 12px;
+    }
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    footer {
+      background: #191e22;
+      color: #b2bcbc;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-social i {
+      font-size: 1.3rem;
+      margin: 0 10px;
+      transition: var(--transition);
+    }
+    .footer-social i:hover {
+      color: var(--gold);
+    }
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 2.3rem; }
+      .section-title { font-size: 2rem; }
+      .container { padding: 0 20px; }
+      .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
+    }
+    @media (max-width: 480px) {
+      .hero-stats { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <h2>PAPAAL</h2>
+      <p>Lifestyle & Hospitality Redefined</p>
+    </div>
+    <div class="menu-icon" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-crown"></i> Premium Lifestyle Hub</div>
+        <h1>Hotel, Autospa, Grill & Barbershop —<br>One Destination</h1>
+        <p>Experience seamless luxury where comfort meets style. Exceptional stays, gourmet grills, professional grooming, and elite car care under one roof.</p>
+        <a href="#services" class="btn-gold"><i class="fas fa-concierge-bell"></i> Explore Services</a>
+        <div class="hero-stats">
+          <div class="stat"><span>4-in-1</span><br>Premium services</div>
+          <div class="stat"><span>24/7</span><br>Guest support</div>
+        </div>
+      </div>
+      <div class="hero-image" style="background-image: url('https://placehold.co/600x500/cbbf9e/5e4b2f?text=Papaal+Hotel+Exterior');"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION (New) -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Moments at Papaal</h2>
+      <p class="section-sub">Explore our lifestyle — from elegant rooms and gourmet grill to autospa excellence and refined barbershop ambience.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item gal-1" title="Hotel Suite"></div>
+        <div class="gallery-item gal-2" title="Grill & Restaurant"></div>
+        <div class="gallery-item gal-3" title="Autospa Car Care"></div>
+        <div class="gallery-item gal-4" title="Barbershop Lounge"></div>
+        <div class="gallery-item gal-5" title="Outdoor Dining Area"></div>
+        <div class="gallery-item gal-6" title="Reception & Lounge"></div>
+      </div>
+      <p style="text-align: center; margin-top: 28px; font-size: 0.85rem; color:#7f8c8d;"><i class="fas fa-camera"></i> Real imagery coming soon – your premium visual experience awaits</p>
+    </div>
+  </section>
+
+  <!-- About Papaal -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Papaal</h2>
+      <p class="section-sub">Papaal Hotel, Autospa & Grill, and Barbershop — a dynamic hospitality and lifestyle brand committed to exceptional comfort and premium services.</p>
+      <div class="two-col">
+        <div>
+          <p style="font-size:1.05rem; margin-bottom:20px;">Built on professionalism, quality, and innovation, Papaal has established itself as a modern destination where hospitality, grooming, dining, and vehicle care seamlessly come together. Our facility is thoughtfully designed to provide convenience, elegance, and relaxation within a clean, secure, and welcoming environment.</p>
+          <p>With modern infrastructure, beautifully maintained surroundings, professional staff, and customer-centered services, Papaal continues to redefine lifestyle and hospitality standards. Whether you are looking for comfortable accommodation, professional grooming, delicious meals, or high-quality autospa, we offer a complete experience tailored to meet your needs.</p>
+        </div>
+        <div>
+          <div class="mission-block">
+            <h3><i class="fas fa-eye" style="color:var(--gold)"></i> Our Vision</h3>
+            <p>To become a leading hospitality & lifestyle destination recognized for excellence, innovation, professionalism, and customer satisfaction.</p>
+            <h3 style="margin-top:20px;"><i class="fas fa-bullhorn" style="color:var(--gold)"></i> Our Mission</h3>
+            <p>Providing exceptional hospitality, grooming, dining, and autospa services through professionalism, innovation, integrity, cleanliness, and outstanding customer care.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 48px;">
+        <h3>Our Core Values</h3>
+        <div class="values-list">
+          <span class="value-tag">Excellence</span>
+          <span class="value-tag">Professionalism</span>
+          <span class="value-tag">Integrity</span>
+          <span class="value-tag">Customer Satisfaction</span>
+          <span class="value-tag">Innovation</span>
+          <span class="value-tag">Cleanliness & Safety</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES with background images -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Signature Services</h2>
+      <p class="section-sub">From luxury stays to premium grill, pro barbershop & high-end autospa — immerse yourself in excellence.</p>
+      <div class="services-grid">
+        <div class="service-card card-hotel">
+          <div class="service-icon"><i class="fas fa-hotel"></i></div>
+          <h3>Hotel & Accommodation</h3>
+          <p>Peaceful stay for travelers, families & professionals. Designed with comfort & serenity.</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Clean & spacious rooms</li>
+            <li><i class="fas fa-check-circle"></i> Excellent customer care</li>
+            <li><i class="fas fa-check-circle"></i> Secure parking & landscaping</li>
+            <li><i class="fas fa-check-circle"></i> Short & long stays</li>
+          </ul>
+        </div>
+        <div class="service-card card-grill">
+          <div class="service-icon"><i class="fas fa-utensils"></i></div>
+          <h3>Grill & Restaurant</h3>
+          <p>Freshly grilled delicacies, local & continental meals, refreshing beverages.</p>
+          <ul>
+            <li><i class="fas fa-fire"></i> Authentic grilled meats & seafood</li>
+            <li><i class="fas fa-hamburger"></i> Fast foods & snacks</li>
+            <li><i class="fas fa-tree"></i> Outdoor dining experiences</li>
+            <li><i class="fas fa-calendar-alt"></i> Customized group meals</li>
+          </ul>
+        </div>
+        <div class="service-card card-autospa">
+          <div class="service-icon"><i class="fas fa-car"></i></div>
+          <h3>Autospa & Car Care</h3>
+          <p>Professional vehicle cleaning & detailing, tractor cleaning, commercial fleet care.</p>
+          <ul>
+            <li><i class="fas fa-tint"></i> Pressure washing & polish</li>
+            <li><i class="fas fa-couch"></i> Interior vacuuming & detailing</li>
+            <li><i class="fas fa-oil-can"></i> Engine cleaning & shine</li>
+            <li><i class="fas fa-truck"></i> Heavy machinery cleaning</li>
+          </ul>
+        </div>
+        <div class="service-card card-barber">
+          <div class="service-icon"><i class="fas fa-cut"></i></div>
+          <h3>Barbershop & Grooming</h3>
+          <p>Modern haircuts, beard grooming, and professional shaving in a stylish lounge.</p>
+          <ul>
+            <li><i class="fas fa-scissors"></i> Precision haircuts & styling</li>
+            <li><i class="fas fa-beard"></i> Beard trimming & shaping</li>
+            <li><i class="fas fa-child"></i> Kids & adult grooming</li>
+            <li><i class="fas fa-star"></i> Premium grooming experience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Papaal + Clients -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title">Why Choose Papaal</h2>
+      <div class="why-grid">
+        <div class="why-item"><i class="fas fa-building"></i> Modern facilities</div>
+        <div class="why-item"><i class="fas fa-concierge-bell"></i> All-in-one destination</div>
+        <div class="why-item"><i class="fas fa-user-tie"></i> Professional friendly staff</div>
+        <div class="why-item"><i class="fas fa-shield-alt"></i> Secure & accessible</div>
+        <div class="why-item"><i class="fas fa-smile"></i> Exceptional experience</div>
+        <div class="why-item"><i class="fas fa-tag"></i> Affordable & reliable</div>
+        <div class="why-item"><i class="fas fa-leaf"></i> Family-friendly environment</div>
+        <div class="why-item"><i class="fas fa-medal"></i> High hospitality standards</div>
+      </div>
+      <div style="margin-top: 56px; background: #fff8ef; border-radius: 40px; padding: 32px;">
+        <h3><i class="fas fa-users"></i> Our Target Clients</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px;">
+          <span class="value-tag">Travelers & tourists</span>
+          <span class="value-tag">Families & groups</span>
+          <span class="value-tag">Corporate clients</span>
+          <span class="value-tag">Motorists & operators</span>
+          <span class="value-tag">Local residents</span>
+          <span class="value-tag">Youth & professionals</span>
+          <span class="value-tag">Institutions</span>
+        </div>
+        <p style="margin-top: 28px;"><strong>Our commitment:</strong> We create experiences that combine comfort, convenience, quality, and professionalism. Building long-term relationships by delivering trust and satisfaction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Outlook -->
+  <section>
+    <div class="container">
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div style="width: 100%; max-width: 550px; margin-bottom: 32px; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="https://placehold.co/800x500/e9dfcf/7f694c?text=Papaal+Future+Expansion" alt="Future expansion vision" style="width:100%; display:block;" id="futureImg">
+        </div>
+        <i class="fas fa-chart-line" style="font-size: 2.6rem; color: var(--gold); margin-bottom: 16px;"></i>
+        <h3 style="font-size: 2rem;">Future Outlook</h3>
+        <p style="max-width: 720px; margin: 20px auto;">Papaal Hotel, Autospa & Grill, and Barbershop aims to continue expanding its operations, enhancing service quality, and embracing innovation to become a recognized leader in hospitality and lifestyle services within the region and beyond.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-info">
+        <h2 style="color: #fefaf5; margin-bottom: 16px;">Connect With Papaal</h2>
+        <p style="margin-bottom: 24px; font-size: 1.1rem;">"Lifestyle and Hospitality Redefined" — Visit us for an unmatched experience.</p>
+        <div class="contact-row">
+          <div><i class="fas fa-map-marker-alt"></i> Location: Nairobi, Kenya (Kiambu Road)</div>
+          <div><i class="fas fa-phone-alt"></i> Phone: +254 700 000 000 / +254 722 123 456</div>
+        </div>
+        <div class="contact-row">
+          <div><i class="fas fa-envelope"></i> Email: hello@papaal.co.ke | reserve@papaal.com</div>
+          <div><i class="fab fa-instagram"></i> @papaal_ke &nbsp;|&nbsp; <i class="fab fa-facebook"></i> Papaal Lifestyle</div>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="#" class="btn-outline" style="background: white; color: #1e2a2e; border-color: white;">Book a Stay</a>
+          <a href="#" class="btn-outline" style="margin-left: 12px; background: transparent; color: white; border-color: var(--gold);">Reserve Table</a>
+        </div>
+        <p style="margin-top: 32px; font-size: 0.8rem; opacity: 0.75;"> Open 7 days a week — Hotel 24/7 | Autospa 8AM–8PM | Barbershop & Grill daily</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 PAPAAL HOTEL, AUTOSPA & GRILL, AND BARBERSHOP — Lifestyle and Hospitality Redefined.</p>
+    <p style="margin-top: 12px; font-size: 0.8rem;">Professionalism ∙ Integrity ∙ Innovation ∙ Cleanliness ∙ Customer First</p>
+    <div class="footer-social">
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-facebook-f"></i>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+  // Smooth scroll + close menu on anchor click
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').substring(1);
+      if (targetId === "") return;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
+      }
+    });
+  });
+  console.log("Papaal full website ready — gallery, hamburger menu, replace any placeholder image with your own assets.");
+</script>
+</body>
+</html>
